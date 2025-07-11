@@ -1,0 +1,34 @@
+{
+  "name": "adriel-ramirez-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website for Adriel Ramirez - Software Developer",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "serve": "node server.js",
+    "build": "echo 'No build process needed for static site'",
+    "deploy": "vercel --prod",
+    "deploy:preview": "vercel"
+  },
+  "keywords": [
+    "portfolio",
+    "web-developer",
+    "software-developer",
+    "frontend",
+    "backend",
+    "fullstack"
+  ],
+  "author": "Adriel Ramirez",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adrielramirez/portfolio.git"
+  },
+  "homepage": "https://adrielramirez.dev",
+  "devDependencies": {},
+  "dependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+} 
