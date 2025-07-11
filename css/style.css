@@ -190,7 +190,7 @@ nav {
    ===================== */
 #about.section {
     padding-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     background: #fff;
 }
 body.dark-mode #about.section {
@@ -219,6 +219,12 @@ body.dark-mode #about.section {
 /* =====================
    Experience Section
    ===================== */
+#experience.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .section-gray-experience {
     background: #f4f4f6;
 }
@@ -243,10 +249,11 @@ body.dark-mode .section-gray-experience {
     max-width: 370px;
     flex: 1 1 320px;
     gap: 1.2rem;
-    transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s, transform 0.3s;
 }
 .experience-card:hover {
     box-shadow: 0 8px 32px rgba(49,130,206,0.10);
+    transform: translateY(-4px);
 }
 .exp-logo {
     width: 56px;
@@ -295,6 +302,10 @@ body.dark-mode .experience-card {
     background: #23242a;
     box-shadow: 0 2px 12px rgba(0,0,0,0.18);
 }
+body.dark-mode .experience-card:hover {
+    box-shadow: 0 8px 32px rgba(99,179,237,0.10);
+    transform: translateY(-4px);
+}
 body.dark-mode .exp-logo {
     background: #18191c;
 }
@@ -314,6 +325,7 @@ body.dark-mode .exp-bullets {
 body.dark-mode .section-gray {
     background: #20232a;
 }
+/* Education cards match experience cards */
 .education-cards {
     display: flex;
     flex-wrap: wrap;
@@ -332,10 +344,11 @@ body.dark-mode .section-gray {
     max-width: 370px;
     flex: 1 1 320px;
     gap: 1.2rem;
-    transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s, transform 0.3s;
 }
 .education-card:hover {
     box-shadow: 0 8px 32px rgba(49,130,206,0.10);
+    transform: translateY(-4px);
 }
 .edu-logo {
     width: 56px;
@@ -383,6 +396,10 @@ body.dark-mode .education-card {
     background: #23242a;
     box-shadow: 0 2px 12px rgba(0,0,0,0.18);
 }
+body.dark-mode .education-card:hover {
+    box-shadow: 0 8px 32px rgba(99,179,237,0.10);
+    transform: translateY(-4px);
+}
 body.dark-mode .edu-logo {
     background: #18191c;
 }
@@ -397,16 +414,19 @@ body.dark-mode .edu-bullets {
    Skills & Technologies
    ===================== */
 .section-skills {
-    background: #f0f4f8;
+    background: transparent;
+    margin-bottom: 0;
 }
 body.dark-mode .section-skills {
     background: #23272f;
 }
+/* Keep skills and projects vertical, no card hover/lift */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
+    justify-items: center;
 }
 .skill-card {
     background: #fff;
@@ -453,11 +473,28 @@ body.dark-mode .skill-card p {
 /* =====================
    Projects Section
    ===================== */
+/* Keep skills and projects vertical, no card hover/lift */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
     margin-top: 2rem;
+    justify-items: stretch;
+}
+.project-card {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+@media (max-width: 1100px) {
+    .projects-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 700px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
 }
 .project-card {
     background: #fff;
@@ -639,4 +676,196 @@ body.dark-mode footer {
     .hero .description { font-size: 1rem; }
     .section { padding: 60px 0; }
     .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+} 
+
+/* =====================
+   Dark Mode Overrides
+   ===================== */
+body.dark-mode {
+    background: #181a1b;
+    color: #e2e8f0;
+}
+body.dark-mode header {
+    background: #181a1b !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+body.dark-mode .logo {
+    color: #63b3ed;
+}
+body.dark-mode .nav-links a {
+    color: #e2e8f0;
+}
+body.dark-mode .nav-links a:hover,
+body.dark-mode .nav-links a:focus,
+body.dark-mode .nav-links a.active {
+    color: #63b3ed;
+}
+body.dark-mode .nav-links a::after {
+    background-color: #63b3ed;
+}
+body.dark-mode .hero {
+    background: #181a1b;
+}
+body.dark-mode .hero h1 {
+    color: #f7fafc;
+}
+body.dark-mode .hero .role {
+    color: #63b3ed;
+}
+body.dark-mode .hero .description {
+    color: #cbd5e1;
+}
+body.dark-mode .profile-pic {
+    background: linear-gradient(135deg, #22577a, #38a3a5);
+    box-shadow: 0 10px 30px rgba(99, 179, 237, 0.1);
+}
+body.dark-mode .section-white {
+    background: #23272a;
+}
+body.dark-mode .section-gray,
+body.dark-mode .contact {
+    background: #20232a;
+}
+body.dark-mode .section-gray-experience {
+    background: #18191c;
+}
+body.dark-mode .section-skills {
+    background: #23272f;
+}
+body.dark-mode .section-title,
+body.dark-mode .project-title,
+body.dark-mode .skill-card h3,
+body.dark-mode .edu-info h3 {
+    color: #f7fafc;
+}
+body.dark-mode .section-subtitle {
+    color: #cbd5e1;
+}
+body.dark-mode .about-text,
+body.dark-mode .skill-card p,
+body.dark-mode .project-description,
+body.dark-mode .contact p {
+    color: #e2e8f0;
+}
+body.dark-mode .experience-card,
+body.dark-mode .education-card {
+    background: #23242a;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+body.dark-mode .exp-logo,
+body.dark-mode .edu-logo {
+    background: #18191c;
+}
+body.dark-mode .exp-company,
+body.dark-mode .edu-degree {
+    color: #63b3ed;
+}
+body.dark-mode .exp-bullets,
+body.dark-mode .edu-bullets {
+    color: #cbd5e1;
+}
+body.dark-mode .edu-gpa {
+    color: #e2e8f0;
+}
+body.dark-mode .skill-card {
+    background: #23272a;
+    border-color: #2d3748;
+}
+body.dark-mode .skill-card:hover {
+    border-color: #63b3ed;
+}
+body.dark-mode .project-card {
+    background: #23272a;
+    border-color: #2d3748;
+}
+body.dark-mode .project-card:hover {
+    box-shadow: 0 8px 25px rgba(99, 179, 237, 0.08);
+}
+body.dark-mode .project-image {
+    background: linear-gradient(135deg, #22577a, #38a3a5);
+}
+body.dark-mode .project-title {
+    color: #f7fafc;
+}
+body.dark-mode .project-description {
+    color: #cbd5e1;
+}
+body.dark-mode .tech-tag {
+    background: #2d3748;
+    color: #cbd5e1;
+}
+body.dark-mode .contact-link {
+    background: #22577a;
+    border-color: #22577a;
+    color: #e2e8f0;
+}
+body.dark-mode .contact-link:hover {
+    background: #38a3a5;
+    border-color: #38a3a5;
+}
+body.dark-mode footer {
+    background: #101214;
+    color: #a0aec0;
+} 
+
+/* Center section headers and content */
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 110px;
+    padding-bottom: 110px;
+    position: relative;
+}
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2.2rem;
+    color: #1a202c;
+    width: 100%;
+}
+body.dark-mode .section-title {
+    color: #f7fafc;
+}
+/* Center grids and cards under headers */
+.skills-grid,
+.projects-grid,
+.experience-cards,
+.education-cards {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+    justify-items: center;
+}
+@media (max-width: 900px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #4a5568;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.skill-card,
+.project-card {
+    min-width: 280px;
+    max-width: 350px;
+    flex: 1 1 300px;
+}
+/* Remove extra left margin from about text */
+.about-text {
+    margin-left: auto;
+    margin-right: auto;
 } 
