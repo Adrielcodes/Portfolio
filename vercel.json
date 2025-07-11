@@ -1,21 +1,14 @@
 {
   "version": 2,
-  "name": "adriel-ramirez-portfolio",
   "builds": [
     {
       "src": "**/*",
       "use": "@vercel/static"
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
   "headers": [
     {
-      "source": "**/*.@(css|js)",
+      "source": "/(.*)\.(css|js)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -24,7 +17,7 @@
       ]
     },
     {
-      "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|ico)",
+      "source": "/(.*)\.(jpg|jpeg|gif|png|svg|webp|ico)",
       "headers": [
         {
           "key": "Cache-Control",
